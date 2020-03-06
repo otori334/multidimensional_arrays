@@ -1,5 +1,7 @@
 #!/bin/bash 
 
+ORI_IFS=${IFS} 
+
 # 状態変数を定義する関数 
 function def_state() { 
   # 引数は二つでもいい 
@@ -15,7 +17,7 @@ function def_state() {
     fi 
     # ARRAY_STATE_MINIMALは状態変数の規定値を格納する配列 
     # min_stateで参照する 
-    ARRAY_STATE_MINIMAL+=( $2 ) 
+    ARRAY_STATE_MINIMAL+=( "${2:-$(eval echo "$1")}" ) 
     # ARRAY_STATE_INFLUENCEは状態変数の影響力を格納する配列 
     # infl_stateで参照する 
     ARRAY_STATE_INFLUENCE+=( $(( 10 - ${#ARRAY_STATE_NAME[@]} )) ) 
