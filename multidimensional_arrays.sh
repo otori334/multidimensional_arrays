@@ -173,3 +173,19 @@ function roster() {
   : # エラーハンドリング 
   exit 1 
 } 
+
+function input_array2 () { 
+    eval array2_$1[$2]='"'$3'"' 
+} 
+
+function output_array2 () { 
+    eval echo '${array2_'$1'['$2']}' 
+} 
+
+function max_array2 () { 
+    eval echo '"${#'array2_$1'[*]}"' 
+} 
+
+function inc_array2 () { 
+    eval echo '$((array2_'$1'['$2']++))' 
+} 
